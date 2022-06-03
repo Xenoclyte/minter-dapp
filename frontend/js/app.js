@@ -107,6 +107,10 @@ async function checkChain() {
   } else if(chain === 'polygon') {
     chainId = 137;
   }
+  else if(chain == "bsc")
+  {
+    chainId = 56;
+  }
   if (window.ethereum.networkVersion !== chainId) {
     try {
       await window.ethereum.request({
@@ -142,6 +146,21 @@ async function checkChain() {
                 },
               ],
             });
+
+          }
+          else if(chain === 'bsc') {
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [
+                {
+                  chainName: 'Binance Mainnet',
+                  chainId: web3.utils.toHex(chainId),
+                  nativeCurrency: { name: 'Binance', decimals: 18, symbol: 'BNB' },
+                  rpcUrls: ['https://bscrpc.com'],
+                },
+              ],
+            });
+
           }
           updateConnectStatus();
         } catch (err) {
@@ -225,6 +244,10 @@ async function loadInfo() {
     priceType = 'ETH';
   } else if (chain === 'polygon') {
     priceType = 'MATIC';
+  }
+  else if(chain === 'bsc')
+  {
+    priceType = 'BNB';
   }
   const price = web3.utils.fromWei(info.deploymentConfig.mintPrice, 'ether');
   const pricePerMint = document.getElementById("pricePerMint");
