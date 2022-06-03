@@ -1,5 +1,5 @@
-const contractAddress = "0x64cA7D78126bb53962Da0AeeC7ad00590357C1a3"; //Replace with your own contract address
-const chain = 'bsc'; // rinkeby or polygon
+const contractAddress = "0x2198abf98621b323BBD3f64e5621C6E5C3c2d5d4"; //Replace with your own contract address
+const chain = 'rinkeby'; // rinkeby or polygon
 
 const welcome_h1 = "Welcome to the CodeCats NFT Project!!";
 const welcome_h2 = "Connect to MetaMask to Get Started";
