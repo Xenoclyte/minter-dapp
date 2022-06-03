@@ -347,6 +347,15 @@ async function mint() {
           countdownContainer.classList.add('hidden');
           mintedContainer.classList.remove('hidden');
         }
+        else if(chain == 'bsc'){
+          const url = `https://bscscan.com//tx/${mintTransaction.transactionHash}`;
+          const mintedContainer = document.querySelector('.minted-container');
+          const countdownContainer = document.querySelector('.countdown');
+          const mintedTxnBtn = document.getElementById("mintedTxnBtn");
+          mintedTxnBtn.href = url;
+          countdownContainer.classList.add('hidden');
+          mintedContainer.classList.remove('hidden');
+        }
         console.log("Minuted successfully!", `Transaction Hash: ${mintTransaction.transactionHash}`);
       } else {
         const mainText = document.getElementById("mainText");
